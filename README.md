@@ -100,6 +100,20 @@ public class ExampleUsage : MonoBehaviour
         // Changes all components to new values: x = 100, y = 200, z = 300
         targetVector = targetVector.ResetVectorComponents(x: 100f, y: 200f, z: 300f);
         Debug.Log("Reset all components: " + targetVector);
+
+
+
+        // Example 12: Retrieve an existing Rigidbody component or add a new one if it doesn't exist
+        Rigidbody rb = gameObject.GetOrAddComponent<Rigidbody>();
+        Debug.Log("Rigidbody component: " + rb);
+
+        // Example 13: Retrieve an existing BoxCollider component or add a new one if it doesn't exist
+        BoxCollider collider = gameObject.GetOrAddComponent<BoxCollider>();
+        Debug.Log("BoxCollider component: " + collider);
+
+        // Example 14: Retrieve an existing AudioSource component or add a new one if it doesn't exist
+        AudioSource audioSource = gameObject.GetOrAddComponent<AudioSource>();
+        Debug.Log("AudioSource component: " + audioSource);
     }
 }
 ```

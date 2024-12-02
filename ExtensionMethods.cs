@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class ExtensionMethods
 {
+    #region ResetTransform
     /// <summary>
     /// Resets the position, rotation, and scale of a Transform based on optional parameters.
     /// If a parameter is not provided, it defaults to specific values:
@@ -30,7 +31,9 @@ public static class ExtensionMethods
         // If scale is provided, use it; otherwise, fallback to Vector3.one (default scale).
         tran.localScale = scale ?? Vector3.one;
     }
+    #endregion
 
+    #region ResetVectorComponents
     /// <summary>
     /// Modifies specific components (x, y, z) of a Vector3.
     /// Any component not provided will retain its current value.
@@ -60,4 +63,23 @@ public static class ExtensionMethods
         // Return a new Vector3 with the updated components.
         return new Vector3(x.Value, y.Value, z.Value);
     }
+    #endregion
+
+    #region GetOrAddCompoment
+    /// <summary>
+    /// Retrieves a component of type <typeparamref name="T"/> from the specified <see cref="GameObject"/>.
+    /// If the component does not exist, it adds and returns a new one.
+    /// </summary>
+    /// <typeparam name="T">The type of the component to retrieve or add.</typeparam>
+    /// <param name="gameObject">The GameObject to search for the component.</param>
+    /// <returns>The existing or newly added component of type <typeparamref name="T"/>.</returns>
+    /// <exception cref="ArgumentNullException">Thrown if the provided GameObject is null.</exception>
+    public static T GetOrAddComponent<T>(this GameObject gameObject) where T : Component
+    {
+        if (gameObject == null) 
+            throw new ArgumentNullException(nameof(gameObject), "GameObject cannot be null.");
+
+        return gameObject.GetComponent<T>() ?? gameObject.AddComponent<T>();
+    }
+    #endregion
 }
