@@ -60,8 +60,8 @@ public class ExampleUsage : MonoBehaviour
         // -------------------------------
         // 5. Example: Reset all transform components (position, rotation, scale)
         // Position: (5, 5, 5), Rotation: 45 degrees on Y-axis, Scale: (3, 3, 3)
-        targetTransform.ResetTransform(position: new Vector3(5f, 5f, 5f), 
-                                        rotation: Quaternion.Euler(0f, 45f, 0f), 
+        targetTransform.ResetTransform(position: new Vector3(5f, 5f, 5f),
+                                        rotation: Quaternion.Euler(0f, 45f, 0f),
                                         scale: new Vector3(3f, 3f, 3f));
         Debug.Log("Reset all components: " + targetTransform.position + ", " + targetTransform.rotation + ", " + targetTransform.localScale);
 
@@ -114,6 +114,9 @@ public class ExampleUsage : MonoBehaviour
         // Example 14: Retrieve an existing AudioSource component or add a new one if it doesn't exist
         AudioSource audioSource = gameObject.GetOrAddComponent<AudioSource>();
         Debug.Log("AudioSource component: " + audioSource);
+
+        // Example 15: Set transparency to 50% (0.5)
+        mySpriteRenderer.SetTransparency(0.5f);
     }
 }
 ```
