@@ -89,4 +89,23 @@ public static void ResetTransform(
         spriteRenderer.color = currentColor;
     }
     #endregion
+
+    #region Set Transparency of UI elements
+    /// <summary>
+    /// Sets the transparency (alpha value) of a UI element's color.
+    /// </summary>
+    /// <param name="graphic">The UI Graphic (e.g., Image, Text, etc.) to modify.</param>
+    /// <param name="alpha">The alpha transparency value (0 = fully transparent, 1 = fully opaque).</param>
+    /// <exception cref="ArgumentNullException">Thrown if the graphic is null.</exception>
+    public static void SetTransparency(this UnityEngine.UI.Graphic graphic, float alpha)
+    {
+        if (graphic == null)
+            throw new ArgumentNullException(nameof(graphic), "Graphic cannot be null.");
+
+        alpha = Mathf.Clamp01(alpha); // Ensure alpha is within [0, 1].
+        Color color = graphic.color;
+        color.a = alpha;
+        graphic.color = color;
+    }
+    #endregion
 }

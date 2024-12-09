@@ -117,6 +117,9 @@ public class ExampleUsage : MonoBehaviour
 
         // Example 15: Set transparency to 50% (0.5)
         mySpriteRenderer.SetTransparency(0.5f);
+
+        // Example 16: Set transparency to 50% (0.5)
+        uiImage.SetTransparency(0.7f);
     }
 }
 ```
